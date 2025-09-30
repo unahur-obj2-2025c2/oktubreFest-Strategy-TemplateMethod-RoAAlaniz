@@ -1,19 +1,13 @@
 package ar.edu.unahur.obj2.marcas;
 
 public class Roja extends Marca{
-    private Double graduacionDistinta;
-    
-    public Roja(Double gramosLupolos, Double graduacion, String nombre, String pais, Double graduacionDistinta) {
-        super(gramosLupolos, graduacion, nombre, pais);
-        this.graduacionDistinta = graduacionDistinta;
-    }
 
-    public Double getGraduacionDistinta() {
-        return graduacionDistinta;
+    public Roja(Double gramosLupulo, String paisOrigen) {
+        super(gramosLupulo, paisOrigen);
     }
 
     @Override
-    public Double getGraduacion() {
-        return this.graduacionDistinta * 1.25;
+    public Double graduacionCerveza() {
+        return super.graduacionCervezaNegra() * 1.25;
     }
 }

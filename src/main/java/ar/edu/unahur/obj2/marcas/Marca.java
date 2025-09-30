@@ -1,49 +1,34 @@
 package ar.edu.unahur.obj2.marcas;
 
+
 public abstract class Marca {
-    private Double gramosLupolos;
-    private Double graduacion;
-    private String nombre;
-    private String pais;
+    protected Double gramosLupulo;
+    protected String paisOrigen;
 
-    public Marca(Double gramosLupolos, Double graduacion, String nombre, String pais) {
-        this.gramosLupolos = gramosLupolos;
-        this.graduacion = graduacion;
-        this.nombre = nombre;
-        this.pais = pais;
+    public Marca(Double gramosLupulo, String paisOrigen) {
+        this.gramosLupulo = gramosLupulo;
+        this.paisOrigen = paisOrigen;
     }
 
-    public Double getGramosLupolos() {
-        return gramosLupolos;
+    public Double getGramosLupulo() {
+        return gramosLupulo;
     }
 
-    public String getNombre() {
-        return nombre;
-    } 
-
-    public String getPais() {
-        return pais;
-    } 
-    
-    public abstract Double getGraduacion();
-
-    public Double alcoholLitro(){
-        return this.graduacion / 100.0;
-    } 
-
-    public void setGramosLupolos(Double gramosLupolos) {
-        this.gramosLupolos = gramosLupolos;
+    public void setGramosLupulo(Double gramosLupulo) {
+        this.gramosLupulo = gramosLupulo;
     }
 
-    public void setGraduacion(Double graduacion) {
-        this.graduacion = graduacion;
+    public String getPaisOrigen() {
+        return paisOrigen;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setPaisOrigen(String paisOrigen) {
+        this.paisOrigen = paisOrigen;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public abstract Double graduacionCerveza();
+
+    protected Double graduacionCervezaNegra(){
+        return Double.min(Reglamentaria.getInstance().getGraduacionReglamentaria(), 2 * gramosLupulo);
     }
 }
